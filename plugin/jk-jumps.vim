@@ -17,5 +17,5 @@ function! JkJumps(key) range
     endif
 endfunction
 
-nnoremap j :<C-U>call JkJumps('j')<CR>
-nnoremap k :<C-U>call JkJumps('k')<CR>
+nnoremap <silent> j :<C-U>call JkJumps('j')<CR>
+nnoremap <silent> k :<C-U>call JkJumps('k')<CR>
