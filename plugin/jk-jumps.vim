@@ -13,6 +13,12 @@ function! JkJumps(key) range
     else
         let current = line('.')
         let target = current + ((a:key == 'k' ? -1 : 1) * v:count1)
+        if a:key == 'k' && foldclosed(target) != -1
+            " handle a movement up to a closed fold. This should jump to the 
+            " beginning of the fold
+            let target = foldclosed(target)
+        endif
+        echom 'target is: '.target
         exec "normal! ".target."G"
     endif
 endfunction

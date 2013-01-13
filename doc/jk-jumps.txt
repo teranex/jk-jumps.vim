@@ -1,7 +1,7 @@
 *jk-jumps.txt*  Handle movements with j/k as if they were real jumps
 
-Author: Jeroen Budts <http://budts.be>
-Repo:   https://github.com/teranex/jk-jumps.vim
+Author:  Jeroen Budts <http://budts.be>
+Repo:    https://github.com/teranex/jk-jumps.vim
 License: Same terms as Vim itself (see |license|)
 
 SUMMARY                                         *jk-jumps*
