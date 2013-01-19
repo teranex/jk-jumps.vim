@@ -8,17 +8,14 @@ if !exists('g:jk_jumps_minimum_lines')
 endif
 
 function! JkJumps(key) range
-    if v:count1 < g:jk_jumps_minimum_lines
-        exec "normal! ".v:count1.a:key
-    else
-        let current = line('.')
-        let target = current + ((a:key == 'k' ? -1 : 1) * v:count1)
-        if a:key == 'k' && foldclosed(target) != -1
-            " handle a movement up to a closed fold. This should jump to the 
-            " beginning of the fold
-            let target = foldclosed(target)
+    exec "normal! ".v:count1.a:key
+    if v:count1 >= g:jk_jumps_minimum_lines
+        let target = line('.')
+        let bkey = 'k'
+        if (a:key == 'k')
+            let bkey = 'j'
         endif
-        echom 'target is: '.target
+        exec "normal! ".v:count1.bkey
         exec "normal! ".target."G"
     endif
 endfunction
